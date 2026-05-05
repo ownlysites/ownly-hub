@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to the Ownly ONCE Ecosystem · Pick Your Path</title>
+<meta name="description" content="Tell us who you are — Business Owner, Real Estate Agent, or Individual — and we'll show you the right path inside the Ownly ONCE Ecosystem. Plus: every client gets a complimentary VIP trip.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-d:#062B3D; --navy-m:#0F3F58; --navy-l:#1B5777;
+    --gold:#C9A84C;  --gold-l:#E0C36F;  --gold-d:#A8893E;
+    --cream:#FAF7F0; --white:#ffffff;
+    --text-d:#062B3D; --text-m:#445b6b; --text-l:rgba(255,255,255,.78);
+    --r:14px; --rl:18px; --rs:8px;
+    --ff:'Cormorant Garamond', Georgia, serif;
+    --fb:'DM Sans', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box; -webkit-print-color-adjust:exact;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:var(--fb);
+    background:linear-gradient(135deg,var(--navy-d) 0%,var(--navy-m) 60%,var(--navy-l) 100%);
+    color:#fff;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    line-height:1.6;
+  }
+
+  /* ── VIP TRIP BANNER ── */
+  .vip-banner{
+    background:linear-gradient(90deg,var(--gold-d),var(--gold),var(--gold-d));
+    color:var(--navy-d);
+    text-align:center;
+    padding:11px 16px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.02em;
+    border-bottom:1px solid rgba(0,0,0,.10);
+    cursor:pointer;
+    transition:filter .15s ease;
+  }
+  .vip-banner:hover{filter:brightness(1.08);}
+  .vip-banner .vip-icon{margin-right:6px;font-size:14px;}
+  .vip-banner .vip-cta{
+    margin-left:8px;
+    background:var(--navy-d);
+    color:var(--gold-l);
+    padding:4px 12px;
+    border-radius:99px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    display:inline-block;
+  }
+
+  /* ── HERO ── */
+  .hero{
+    text-align:center;
+    padding:72px 24px 40px;
+    max-width:880px;
+    margin:0 auto;
+  }
+  .hero-eyebrow{
+    font-size:11px;
+    font-weight:600;
+    color:var(--gold-l);
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    margin-bottom:16px;
+  }
+  .hero-title{
+    font-family:var(--ff);
+    font-size:54px;
+    font-weight:500;
+    color:#fff;
+    line-height:1.05;
+    letter-spacing:-.01em;
+    margin:0 0 16px;
+  }
+  .hero-title em{color:var(--gold-l);font-style:italic;}
+  .hero-sub{
+    font-size:17px;
+    color:rgba(255,255,255,.78);
+    line-height:1.65;
+    max-width:600px;
+    margin:0 auto;
+    font-weight:300;
+  }
+
+  /* ── PATH CARDS ── */
+  .paths{
+    flex:1;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px 64px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    width:100%;
+  }
+  .card{
+    background:rgba(255,255,255,.04);
+    border:1.5px solid rgba(201,168,76,.30);
+    border-radius:var(--rl);
+    padding:38px 30px 32px;
+    color:#fff;
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .card::after{
+    content:'→';
+    position:absolute;
+    right:24px;
+    bottom:22px;
+    color:var(--gold);
+    font-size:32px;
+    line-height:1;
+    transition:transform .18s ease, color .18s ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);
+    border-color:var(--gold);
+    background:rgba(201,168,76,.06);
+    box-shadow:0 14px 40px rgba(0,0,0,.35);
+  }
+  .card:hover::after{transform:translateX(6px);color:var(--gold-l);}
+  .card-icon{font-size:54px;line-height:1;margin-bottom:18px;}
+  .card-tag{
+    font-size:10px;
+    font-weight:700;
+    color:var(--gold-l);
+    letter-spacing:.15em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .card-title{
+    font-family:var(--ff);
+    font-size:32px;
+    font-weight:500;
+    color:#fff;
+    line-height:1.1;
+    margin:0 0 12px;
+  }
+  .card-tagline{
+    font-size:14px;
+    color:rgba(255,255,255,.72);
+    line-height:1.55;
+    margin-bottom:24px;
+    font-weight:300;
+  }
+  .card-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+  }
+  .card-list li{
+    font-size:13px;
+    color:rgba(255,255,255,.85);
+    margin-bottom:9px;
+    padding-left:20px;
+    position:relative;
+    line-height:1.5;
+  }
+  .card-list li::before{
+    content:'◆';
+    color:var(--gold);
+    position:absolute;
+    left:0;
+    top:0;
+    font-size:10px;
+    line-height:1.6;
+  }
+
+  /* ── FOOTER ── */
+  .footer{
+    text-align:center;
+    padding:28px 24px 40px;
+    border-top:1px solid rgba(255,255,255,.08);
+    background:rgba(0,0,0,.20);
+  }
+  .footer-line{
+    font-size:13px;
+    color:rgba(255,255,255,.55);
+    margin:0 0 12px;
+  }
+  .footer-cta{
+    display:inline-block;
+    background:transparent;
+    border:1px solid rgba(201,168,76,.45);
+    color:var(--gold-l);
+    padding:11px 24px;
+    border-radius:99px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.02em;
+    text-decoration:none;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .footer-cta:hover{background:rgba(201,168,76,.08);border-color:var(--gold);}
+  .footer-brand{
+    margin-top:18px;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.45);
+  }
+  .footer-brand strong{color:var(--gold-l);font-weight:600;}
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:980px){
+    .paths{grid-template-columns:1fr;gap:18px;padding-bottom:48px;}
+    .hero{padding:56px 22px 32px;}
+    .hero-title{font-size:40px;}
+    .hero-sub{font-size:15px;}
+    .card{padding:32px 24px 28px;}
+    .card-title{font-size:26px;}
+  }
+  @media (max-width:540px){
+    .vip-banner{font-size:12px;padding:10px 14px;}
+    .vip-banner .vip-cta{display:block;margin:6px auto 0;width:fit-content;}
+    .hero-title{font-size:32px;}
+    .hero-eyebrow{font-size:10px;}
+    .card-title{font-size:24px;}
+    .card-icon{font-size:44px;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- VIP TRIP BANNER (every visitor sees this) -->
+  <a class="vip-banner" href="https://the-ownly-breakthrough.vercel.app/your-vip-trip.html">
+    <span class="vip-icon">✈️</span>
+    Every Ownly ONCE engagement comes with a complimentary VIP trip — pick your favorite of 6 vacation options
+    <span class="vip-cta">See My Trip Options</span>
+  </a>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">★ The Ownly ONCE Ecosystem</div>
+    <h1 class="hero-title">Tell us who you are — we'll show you <em>the right path</em>.</h1>
+    <p class="hero-sub">Three doors. One ecosystem. Click whichever fits and you'll land exactly where the right tools, partners, and money-finding diagnostics live for someone like you.</p>
+  </section>
+
+  <!-- PATH CARDS -->
+  <main class="paths">
+
+    <!-- BUSINESS OWNER -->
+    <a class="card" href="https://the-ownly-breakthrough.vercel.app/?source=hub&audience=business">
+      <div class="card-icon">🏢</div>
+      <div class="card-tag">For Business Owners</div>
+      <h2 class="card-title">I run a business.</h2>
+      <p class="card-tagline">Find $50K–$500K in hidden money inside your business — in 15 minutes. Free DREAMS Score, AI marketing implementation, working capital, tax strategy.</p>
+      <ul class="card-list">
+        <li>Free DREAMS Score (R&amp;D credits, fee recovery, Section 125)</li>
+        <li>12-month AI growth plan via Ownly Marketing Agency</li>
+        <li>$5K–$1.5M working capital lines · Tax Hive · Local Spotlight</li>
+      </ul>
+    </a>
+
+    <!-- REAL ESTATE AGENT -->
+    <a class="card" href="https://itsownlymoney.vercel.app/?source=hub&audience=agent#agents">
+      <div class="card-icon">🏡</div>
+      <div class="card-tag">For Real Estate Agents</div>
+      <h2 class="card-title">I sell real estate.</h2>
+      <p class="card-tagline">Turn one book of business into three income streams. The patented Income Snowball + REACH Solar + UFF residual sphere — built specifically for agents.</p>
+      <ul class="card-list">
+        <li>U.S.-patented Income Snowball (commission, residuals, snowball)</li>
+        <li>REACH Solar — get paid on every neighborhood deal</li>
+        <li>UFF residual sphere of influence on autopilot</li>
+      </ul>
+    </a>
+
+    <!-- INDIVIDUAL / FAMILY -->
+    <a class="card" href="https://itsownlymoney.vercel.app/?source=hub&audience=individual">
+      <div class="card-icon">🌳</div>
+      <div class="card-tag">For Individuals &amp; Families</div>
+      <h2 class="card-title">I'm building wealth.</h2>
+      <p class="card-tagline">Run your free Freedom Score and Family Legacy plan in 15 minutes. Reduce or eliminate income, capital gains, and property tax — built around real estate agents but open to anyone seeking 5-year financial freedom.</p>
+      <ul class="card-list">
+        <li>Freedom Score · Family Legacy · College planning</li>
+        <li>Triple-tax promise: income, capital gains, property tax</li>
+        <li>Cross-device sync · 18 panes · 6 calculators · DJ AI coach</li>
+      </ul>
+    </a>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p class="footer-line">Already know what you need? Skip the path picker.</p>
+    <a class="footer-cta" href="https://calendly.com/daveivery">📅 Book a 15-min Sit Down with Dave</a>
+    <div class="footer-brand">
+      <strong>Ownly ONCE</strong> &nbsp;·&nbsp; itsownlymoney.com &nbsp;·&nbsp; 941-277-9876
+    </div>
+  </footer>
+
+</body>
+</html>
