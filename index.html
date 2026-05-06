@@ -370,6 +370,21 @@
 </head>
 <body>
 
+  <!-- ══════ TOP WONDERTRUST ALERT — first thing visible (mobile-first) ══════ -->
+  <div id="wt-alert" class="wt-alert">
+    <div class="wt-alert-inner">
+      <div class="wt-icon">🚨</div>
+      <div class="wt-copy">
+        <div class="wt-eyebrow">Special Notice · For Individuals OR Businesses</div>
+        <div class="wt-headline">The IRS may owe you a refund on penalties &amp; interest paid 2020–2023. <span class="wt-deadline">Deadline: July 10, 2026.</span> Free check · zero upfront cost.</div>
+      </div>
+      <div class="wt-cta-group">
+        <span id="wt-countdown-top" class="wt-countdown">Loading…</span>
+        <a class="wt-cta-btn" href="https://filemycredit.com/daveivery">Check Eligibility — Free →</a>
+      </div>
+    </div>
+  </div>
+
   <!-- VIP TRIP BANNER (every visitor sees this) -->
   <a class="vip-banner" href="https://the-ownly-breakthrough.vercel.app/your-vip-trip.html">
     <span class="vip-icon">✈️</span>
@@ -447,11 +462,14 @@
     var deadline = new Date('2026-07-10T23:59:59Z').getTime();
     function tick(){
       var diff = deadline - Date.now();
-      var el = document.getElementById('wt-countdown');
-      if (!el) return;
-      if (diff <= 0) { el.textContent = 'Deadline passed'; return; }
-      var d = Math.floor(diff/86400000);
-      el.textContent = d + (d===1?' day left to file' : ' days left to file');
+      var passed = diff <= 0;
+      var d = passed ? 0 : Math.floor(diff/86400000);
+      // Top banner — short label
+      var top = document.getElementById('wt-countdown-top');
+      if (top) top.textContent = passed ? 'Deadline passed' : (d + (d===1?' day left':' days left'));
+      // Middle card — long label
+      var mid = document.getElementById('wt-countdown');
+      if (mid) mid.textContent = passed ? 'Deadline passed' : (d + (d===1?' day left to file' : ' days left to file'));
     }
     tick();
     setInterval(tick, 60*60*1000);
