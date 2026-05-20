@@ -54,6 +54,8 @@ export default function GoldParticles() {
   return (
     <div
       aria-hidden
+      data-gold-particles
+      className="gold-particles-canvas"
       style={{
         position: "absolute", inset: 0, opacity: 0.3, pointerEvents: "none",
       }}

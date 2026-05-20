@@ -16,6 +16,7 @@ export default function Hero() {
       }}
     >
       <GoldParticles />
+      <div className="gold-dust-mobile" aria-hidden />
       <div className="container" style={{ position: "relative", textAlign: "center", maxWidth: 920, padding: "120px 24px 80px" }}>
         <motion.div
           initial={{ opacity: 0, y: 8 }}
