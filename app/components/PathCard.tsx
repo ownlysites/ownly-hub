@@ -49,9 +49,10 @@ export default function PathCard(p: PathCardProps) {
       onClick={onClick}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-20px" }}
       transition={{ duration: 0.6, ease: "easeOut", delay: p.delay ?? 0 }}
       whileHover={{ y: -6 }}
+      whileTap={{ y: -4 }}
       style={{
         display: "flex", flexDirection: "column",
         width: "100%", maxWidth: 380, height: 560,
