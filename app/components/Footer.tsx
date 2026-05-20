@@ -62,6 +62,9 @@ export default function Footer() {
         paddingTop: 22, display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12,
       }}>
         <span className="mono" style={{ color: "var(--text-mute)" }}>VOL.I · NO.01 · MMXXVI</span>
+        {/* VIP-ALUMNI */}
+        <a className="mono" href="https://ownly-vip-trip.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold-dark)", textDecoration: "none", letterSpacing: "0.12em" }}>★ 6FSD ALUMNI · VIP TRIP</a>
+        {/* /VIP-ALUMNI */}
         <span className="mono" style={{ color: "var(--text-mute)" }}>
           © 2026 OWNLY ONCE LLC · SARASOTA, FL · AN OWNLY ONCE PUBLICATION
         </span>
