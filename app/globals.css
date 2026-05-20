@@ -127,35 +127,12 @@ h1, h2, h3, .display { font-family: var(--ff-display); font-weight: 500; letter-
    Ambient idle motion — editorial-luxury, paper + gold
    ============================================================ */
 
-/* .tilt: subtle, slow breathing rotation (no hover-only motion).
-   Base transform lives on .tilt; the breathe keyframes nudge it. */
-.tilt {
-  transform: perspective(900px) rotateX(0deg) rotateY(0deg);
-  transform-style: preserve-3d;
-  animation: tilt-breathe 6s ease-in-out infinite;
-  will-change: transform;
-}
 @keyframes tilt-breathe {
   0%, 100% { transform: perspective(900px) rotateX(0deg)    rotateY(0deg); }
   25%      { transform: perspective(900px) rotateX(1.5deg)  rotateY(-1.2deg); }
   50%      { transform: perspective(900px) rotateX(0deg)    rotateY(1.5deg); }
   75%      { transform: perspective(900px) rotateX(-1.2deg) rotateY(0.6deg); }
 }
-
-/* PathCard touch-feedback — selector is brief-suggested .path-card,
-   plus the actual rendered element (a motion.a inside #paths section).
-   :active works on both hover and coarse-pointer devices. */
-.path-card {
-  transform: translateY(0);
-  transition: transform 0.4s ease;
-}
-.path-card:active {
-  transform: translateY(-4px);
-}
-
-/* Cursor-magnet kept inert (selector present for completeness even
-   though no .cursor-magnet elements currently exist). */
-.cursor-magnet { cursor: auto !important; }
 
 /* Pure-CSS gold dust — mobile substitute for the R3F particles canvas.
    30 motes generated via box-shadow array, slow vertical drift. */
@@ -239,12 +216,6 @@ h1, h2, h3, .display { font-family: var(--ff-display); font-weight: 500; letter-
 
   /* iOS Safari background-attachment: fixed is broken — force scroll. */
   body::before { background-attachment: scroll; }
-
-  /* No custom cursors on touch. */
-  .cursor-magnet { cursor: auto !important; }
-
-  /* Tone the breathing a touch on mobile to save battery. */
-  .tilt { animation-duration: 8s; }
 }
 
 /* ============================================================
@@ -259,7 +230,6 @@ h1, h2, h3, .display { font-family: var(--ff-display); font-weight: 500; letter-
     animation-iteration-count: 1 !important;
     transition-duration: 0.3s !important;
   }
-  .tilt,
   body::before,
   .gold-dust-mobile,
   .gold-dust-mobile::before,
