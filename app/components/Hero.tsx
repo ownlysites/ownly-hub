@@ -64,6 +64,32 @@ export default function Hero() {
             Choose your path&nbsp;↓
           </a>
         </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          style={{ marginTop: 28 }}
+        >
+          <a
+            href="https://ownly-vip-trip.vercel.app/?source=hub-hero&audience=vip"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: "var(--ff-display)",
+              fontStyle: "italic",
+              fontSize: 15.5,
+              color: "var(--text-mute)",
+              textDecoration: "none",
+              borderBottom: "1px solid var(--gold)",
+              paddingBottom: 2,
+              letterSpacing: "0.01em",
+            }}
+          >
+            <span style={{ color: "var(--gold-dark)", marginRight: 6 }}>★</span>
+            Already sat down? <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Your VIP Trip awaits</em>&nbsp;→
+          </a>
+        </motion.div>
       </div>
     </section>
   );
