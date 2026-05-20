@@ -25,6 +25,18 @@ const CARDS = [
     loop: "/loops/individual.mp4",
     audience: "individual" as const,
   },
+  {
+    eyebrow: "★ 6 FIGURE SIT DOWN ALUMNI",
+    headlinePre: "The trip",
+    headlineItalic: "is part of",
+    headlinePost: " the Sit Down.",
+    subhead: "Six destinations, the Ownly ONCE Loyalty Club, and one million ongoing discounts. A thank-you for sitting down.",
+    cta: "Open VIP Trip",
+    href: "https://ownly-vip-trip.vercel.app/?source=hub&audience=vip",
+    image: "/hero/vip.avif",
+    loop: "/loops/vip.mp4",
+    audience: "vip" as const,
+  },
 ];
 
 export default function PathsSection() {
