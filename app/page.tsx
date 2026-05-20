@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import WonderTrustBanner from "./components/WonderTrustBanner";
 import Hero from "./components/Hero";
 import PathsSection from "./components/PathsSection";
 import PullQuote from "./components/PullQuote";
@@ -9,6 +10,7 @@ import ConciergeFrame from "./components/ConciergeFrame";
 export default function Page() {
   return (
     <>
+      <WonderTrustBanner />
       <Header />
       <main>
         <Hero />
