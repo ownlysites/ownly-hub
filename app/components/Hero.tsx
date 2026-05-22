@@ -49,10 +49,10 @@ export default function Hero() {
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
           style={{
             fontSize: 20, lineHeight: 1.55, color: "var(--text-mute)",
-            maxWidth: 540, margin: "0 auto 36px",
+            maxWidth: 580, margin: "0 auto 36px",
           }}
         >
-          A growing ecosystem of financial-education, capital-access, and AI-consulting properties for owners who refuse to leave money on the table.
+          Two breakthroughs under one roof. One for the business owner finding capital their bank never mentioned. One for the individual finding the wealth hiding between paychecks. Pick the door.
         </motion.p>
 
         <motion.div
