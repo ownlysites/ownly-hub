@@ -2,40 +2,28 @@ import PathCard from "./PathCard";
 
 const CARDS = [
   {
-    eyebrow: "FOR THE OWNER",
+    eyebrow: "FOR THE BUSINESS OWNER",
     headlinePre: "Find the",
     headlineItalic: "capital",
     headlinePost: " your bank never mentioned.",
-    subhead: "Credits, funding, AI agents, marketing systems. Built for $200K–$10M operators.",
-    cta: "Explore Breakthrough",
+    subhead: "Hidden credits, 0% APR business funding, AI agents, and marketing systems. Built for $200K–$10M operators who refuse to leave money on the table.",
+    cta: "Open The Business Breakthrough",
     href: "https://the-ownly-breakthrough.vercel.app/?source=hub&audience=business",
     image: "/hero/business.jpg",
     loop: "/loops/business.mp4",
     audience: "business" as const,
   },
   {
-    eyebrow: "FOR THE PROFESSIONAL & THE FAMILY",
-    headlinePre: "Real wealth",
-    headlineItalic: "moves",
-    headlinePost: " between paychecks.",
-    subhead: "Real estate residuals, $0-down purchase, debt acceleration, tax recovery, gold + bonds, the 5-Year Wealth Plan.",
-    cta: "Open WealthPath",
-    href: "https://itsownlymoney.vercel.app/?source=hub&audience=wealth",
+    eyebrow: "FOR THE INDIVIDUAL & THE FAMILY",
+    headlinePre: "You work hard.",
+    headlineItalic: "Your money doesn't.",
+    headlinePost: " Yet.",
+    subhead: "The patented Income Snowball, Spendthrift Trust tax strategy, 8.5% bonds, healthcare ecosystem, and Family Legacy Score. For households ready to flip the order.",
+    cta: "Open The Money Breakthrough",
+    href: "https://ownly-money-breakthrough.vercel.app/?source=hub&audience=individual",
     image: "/hero/individual.jpg",
     loop: "/loops/individual.mp4",
     audience: "individual" as const,
-  },
-  {
-    eyebrow: "★ 6 FIGURE SIT DOWN ALUMNI",
-    headlinePre: "The trip",
-    headlineItalic: "is part of",
-    headlinePost: " the Sit Down.",
-    subhead: "Six destinations, the Ownly ONCE Loyalty Club, and one million ongoing discounts. A thank-you for sitting down.",
-    cta: "Open VIP Trip",
-    href: "https://ownly-vip-trip.vercel.app/?source=hub&audience=vip",
-    image: "/hero/vip.avif",
-    loop: "/loops/vip.mp4",
-    audience: "vip" as const,
   },
 ];
 
@@ -44,7 +32,7 @@ export default function PathsSection() {
     <section id="paths" style={{ background: "var(--paper-cream)", padding: "120px 0 100px" }}>
       <div className="container" style={{ textAlign: "center", marginBottom: 56 }}>
         <div className="eyebrow" style={{ marginBottom: 22 }}>
-          <span className="hairline-rule" />THREE PATHS · ONE ECOSYSTEM
+          <span className="hairline-rule" />TWO BREAKTHROUGHS · ONE ECOSYSTEM
         </div>
         <h2 style={{
           fontFamily: "var(--ff-display)", fontWeight: 500,
@@ -58,9 +46,9 @@ export default function PathsSection() {
         className="container"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 380px))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 460px))",
           justifyContent: "center",
-          gap: 28,
+          gap: 32,
         }}
       >
         {CARDS.map((c, i) => (
