@@ -2,7 +2,7 @@ const CTAS = [
   { label: "FREE AI ASSESSMENT", href: "https://ownly-gap-audit.vercel.app/" },
   { label: "FIND MY MONEY · 5 MIN", href: "https://app.mplannerpro.com/abce1ffefc/chat?pg=69539a14a3" },
   { label: "DREAMS SCORE", href: "https://dreamsscore.biz/?refid=AA3946" },
-  { label: "6 FIGURE SIT DOWN", href: "https://calendly.com/daveivery/meetandgreet" },
+  { label: "6 FIGURE SIT DOWN", href: "https://calendly.com/daveivery/sit_down" },
   { label: "BUSINESS CREDIT SCAN", href: "https://ownly-business-credit-builder.vercel.app/" },
   { label: "★ COMPLIMENTARY VIP TRIP", href: "https://ownly-vip-trip.vercel.app/?source=hub-cta-strip&audience=vip" },
 ];
