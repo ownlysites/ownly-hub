@@ -3,7 +3,7 @@ import "./globals.css";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ownly-hub.vercel.app"),
+  metadataBase: new URL("https://itsownlymoney.com"),
   title: "Ownly ONCE — Find the credit, capital, and AI your business is missing.",
   description:
     "An editorial-luxury holding company for SMB owners, real-estate agents, and individuals. Built around the 6 Figure Sit Down and the F.A.C.T. methodology.",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: "Ownly ONCE — Own nothing. Control everything.",
     description:
       "A growing ecosystem of financial-education, capital-access, and AI-consulting properties for owners who refuse to leave money on the table.",
-    url: "https://ownly-hub.vercel.app",
+    url: "https://itsownlymoney.com",
     siteName: "Ownly ONCE",
     images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     type: "website",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       "An editorial-luxury holding company for SMB owners, real-estate agents, and individuals.",
     images: ["/og.jpg"],
   },
-  alternates: { canonical: "https://ownly-hub.vercel.app/" },
+  alternates: { canonical: "https://itsownlymoney.com/" },
   robots: { index: true, follow: true },
 };
 
@@ -31,8 +31,8 @@ const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Ownly ONCE LLC",
-  url: "https://ownly-hub.vercel.app",
-  logo: "https://ownly-hub.vercel.app/logo.png",
+  url: "https://itsownlymoney.com",
+  logo: "https://itsownlymoney.com/logo.png",
   founder: { "@type": "Person", name: "Dave Ivery", jobTitle: "Founder · NFEC CFEI · AI Consultant" },
   contactPoint: [{
     "@type": "ContactPoint",
@@ -59,7 +59,7 @@ const siteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Ownly ONCE",
-  url: "https://ownly-hub.vercel.app",
+  url: "https://itsownlymoney.com",
   publisher: { "@type": "Organization", name: "Ownly ONCE LLC" },
   inLanguage: "en-US",
 };
