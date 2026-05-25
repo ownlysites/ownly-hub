@@ -23,6 +23,7 @@ export const metadata: Metadata = {
       "An editorial-luxury holding company for SMB owners, real-estate agents, and individuals.",
     images: ["/og.jpg"],
   },
+  alternates: { canonical: "https://ownly-hub.vercel.app/" },
   robots: { index: true, follow: true },
 };
 
@@ -44,7 +45,13 @@ const orgSchema = {
   address: { "@type": "PostalAddress", addressLocality: "Sarasota", addressRegion: "FL", addressCountry: "US" },
   sameAs: [
     "https://the-ownly-breakthrough.vercel.app",
-    "https://itsownlymoney.vercel.app",
+    "https://itsownlymoney.com",
+    "https://8minuteaudit.com",
+    "https://venice50kchallenge.com",
+    "https://ownly-business-credit-builder.vercel.app",
+    "https://ownly-web-studio.vercel.app",
+    "https://ownly-marketing.vercel.app",
+    "https://calendly.com/daveivery"
   ],
 };
 
@@ -53,6 +60,8 @@ const siteSchema = {
   "@type": "WebSite",
   name: "Ownly ONCE",
   url: "https://ownly-hub.vercel.app",
+  publisher: { "@type": "Organization", name: "Ownly ONCE LLC" },
+  inLanguage: "en-US",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -72,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
         <Script id="apollo-tracker" strategy="afterInteractive">
-          {`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"6a03527613cf03001b6db951"})},document.head.appendChild(o)}initApollo();`}
+          {`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"68000000000000000000"})},document.head.appendChild(o)}initApollo();`}
         </Script>
       </body>
     </html>
