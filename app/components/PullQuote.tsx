@@ -10,7 +10,7 @@ export default function PullQuote() {
           &ldquo;Ownly ONCE is the umbrella over two breakthroughs — one for the business, one for the household. Both put the credit, capital, AI, and education that&rsquo;s already yours back under your direct control. We don&rsquo;t sell. We <em style={{ color: "var(--gold)" }}>find</em>.&rdquo;
         </p>
         <div className="mono" style={{ color: "var(--text-mute)" }}>
-          — DAVE IVERY · FOUNDER · NFEC CFEI · AI CONSULTANT
+          — DAVE IVERY · FINANCIAL GROWTH EXPERT · AI-POWERED · NFEC CFEI · FOUNDER, OWNLY ONCE
         </div>
       </div>
     </section>
