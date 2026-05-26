@@ -10,7 +10,7 @@ const COLS = [
   ]},
   { title: "STUDIO", links: [
     { l: "Web Studio", h: "https://ownly-web-studio.vercel.app/" },
-    { l: "Find My Money", h: "https://app.mplannerpro.com/abce1ffefc/chat?pg=69539a14a3" },
+    { l: "Find My Money", h: "https://app.mplannerpro.com/abce1ffefc/chat?pg=dea8573397" },
     { l: "6 Figure Sit Down", h: "https://calendly.com/daveivery/sit_down" },
   ]},
   { title: "CONTACT", links: [
