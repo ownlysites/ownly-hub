@@ -2,6 +2,18 @@ import PathCard from "./PathCard";
 
 const CARDS = [
   {
+    eyebrow: "DIGITAL REAL ESTATE",
+    headlinePre: "Active investment income.",
+    headlineItalic: "No tenants, no toilets, no Wall Street.",
+    headlinePost: "",
+    subhead: "E-Estate · 18-month structured lots. Monday–Friday income model. The predictability of dividends with the upside of property — without real-estate headaches or stock-market volatility. Dave Ivery is a Licensed Digital Real Estate Agent on this platform.",
+    cta: "Start with E-Estate",
+    href: "https://e-estate.co/agent/614982774359",
+    image: "/hero/vip.avif",
+    loop: "/loops/vip.mp4",
+    audience: "investor" as const,
+  },
+  {
     eyebrow: "FOR THE BUSINESS OWNER",
     headlinePre: "Find the",
     headlineItalic: "capital",
@@ -32,7 +44,7 @@ export default function PathsSection() {
     <section id="paths" style={{ background: "var(--paper-cream)", padding: "120px 0 100px" }}>
       <div className="container" style={{ textAlign: "center", marginBottom: 56 }}>
         <div className="eyebrow" style={{ marginBottom: 22 }}>
-          <span className="hairline-rule" />TWO BREAKTHROUGHS · ONE ECOSYSTEM
+          <span className="hairline-rule" />THREE PATHS · ONE ECOSYSTEM
         </div>
         <h2 style={{
           fontFamily: "var(--ff-display)", fontWeight: 500,

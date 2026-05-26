@@ -12,7 +12,7 @@ export interface PathCardProps {
   href: string;
   image: string;
   loop: string;
-  audience: "business" | "agent" | "individual" | "vip";
+  audience: "business" | "agent" | "individual" | "vip" | "investor";
   delay?: number;
 }
 

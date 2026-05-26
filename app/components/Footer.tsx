@@ -7,7 +7,6 @@ const COLS = [
   { title: "SCANS", links: [
     { l: "AI Assessment", h: "https://ownly-gap-audit.vercel.app/" },
     { l: "Business Credit", h: "https://ownly-business-credit-builder.vercel.app/" },
-    { l: "DREAMS Score", h: "https://dreamsscore.biz/?refid=AA3946" },
   ]},
   { title: "STUDIO", links: [
     { l: "Web Studio", h: "https://ownly-web-studio.vercel.app/" },
