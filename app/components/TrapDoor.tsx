@@ -1,15 +1,78 @@
 "use client";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 
 /* =========================================================================
    TrapDoor — the one red button on an all-gold site. No label. No copy.
    A glowing physical push-button. Only the curious press it.
-   Sits between Hero and PathsSection. URL in the constant below.
+   Push it: the button implodes, the screen dissolves into Matrix rain,
+   then drops the visitor through to the funnel (same tab).
    ========================================================================= */
 
 const TD_URL = "https://because.itsownlymoney.com/";
 
 export default function TrapDoor() {
+  const aRef = useRef<HTMLAnchorElement>(null);
+  const fxRef = useRef<HTMLCanvasElement>(null);
+  const flashRef = useRef<HTMLDivElement>(null);
+  const running = useRef(false);
+
+  function fire(e: React.MouseEvent) {
+    e.preventDefault();
+    if (running.current) return;
+    running.current = true;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) { window.location.href = TD_URL; return; }
+
+    aRef.current?.classList.add("imploding");
+    setTimeout(runMatrix, 200);
+  }
+
+  function runMatrix() {
+    const cv = fxRef.current, flash = flashRef.current;
+    if (!cv || !flash) { window.location.href = TD_URL; return; }
+    const ctx = cv.getContext("2d");
+    if (!ctx) { window.location.href = TD_URL; return; }
+
+    const dpr = window.devicePixelRatio || 1;
+    const W = window.innerWidth, H = window.innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    cv.style.display = "block";
+
+    const fontS = 16;
+    const cols = Math.floor(W / fontS);
+    const drops = new Array(cols).fill(0).map(() => (Math.random() * -H) / fontS);
+    const chars = "アカサタナハマヤラワ0123456789ABCDEF$@#%&";
+    const t0 = performance.now();
+    ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+
+    const loop = (now: number) => {
+      const dt = (now - t0) / 1000;
+      ctx.fillStyle = "rgba(0,0,0,0.075)"; ctx.fillRect(0, 0, W, H);
+      ctx.font = fontS + "px 'JetBrains Mono', monospace";
+      for (let i = 0; i < cols; i++) {
+        const ch = chars[Math.floor(Math.random() * chars.length)];
+        const x = i * fontS, y = drops[i] * fontS;
+        ctx.fillStyle = "#cfffd6"; ctx.fillText(ch, x, y);
+        ctx.fillStyle = "#16a82f";
+        ctx.fillText(chars[Math.floor(Math.random() * chars.length)], x, y - fontS);
+        if (y > H && Math.random() > 0.982) drops[i] = 0;
+        drops[i] += 0.5;
+      }
+      if (dt < 0.6) cv.style.opacity = String(Math.min(1, dt / 0.6));
+      if (dt < 2.4) {
+        requestAnimationFrame(loop);
+      } else {
+        flash.style.display = "block";
+        flash.style.opacity = "1";
+        setTimeout(() => { window.location.href = TD_URL; }, 520);
+      }
+    };
+    requestAnimationFrame(loop);
+  }
+
   return (
     <section
       aria-label="Trap Door"
@@ -22,9 +85,9 @@ export default function TrapDoor() {
       }}
     >
       <motion.a
+        ref={aRef}
         href={TD_URL}
-        target="_blank"
-        rel="noopener noreferrer"
+        onClick={fire}
         className="trapdoor"
         aria-label="Open the Trap Door"
         initial={{ opacity: 0, scale: 0.9 }}
@@ -40,6 +103,9 @@ export default function TrapDoor() {
           </span>
         </span>
       </motion.a>
+
+      <canvas ref={fxRef} className="td-fx" aria-hidden />
+      <div ref={flashRef} className="td-flash" aria-hidden />
 
       <style>{`
         .trapdoor {
@@ -115,7 +181,23 @@ export default function TrapDoor() {
             inset 0 4px 10px rgba(255,184,172,0.35),
             0 0 22px 4px rgba(232,60,68,0.55);
         }
+        .trapdoor.imploding .td-cap {
+          transform: translateY(26px) scale(0.55);
+          animation: none;
+          transition: transform 0.22s cubic-bezier(.6,0,.8,.2), box-shadow 0.22s;
+          box-shadow: 0 0 60px 20px rgba(255,72,60,1);
+        }
+        .trapdoor.imploding .td-glow { animation: none; opacity: 1; transform: scale(0.4); }
         .trapdoor:focus-visible { outline: 2px solid var(--gold); outline-offset: 8px; border-radius: 50%; }
+        .td-fx {
+          position: fixed; inset: 0; width: 100%; height: 100%;
+          z-index: 9000; display: none; pointer-events: none;
+        }
+        .td-flash {
+          position: fixed; inset: 0; background: #000;
+          z-index: 9001; display: none; opacity: 0;
+          transition: opacity 0.5s ease; pointer-events: none;
+        }
         @keyframes td-breathe {
           0%, 100% { opacity: 0.55; transform: scale(1); }
           50%      { opacity: 1;    transform: scale(1.18); }
