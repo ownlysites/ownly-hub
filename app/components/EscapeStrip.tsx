@@ -5,7 +5,6 @@
    Navy ground, gold accents, red/gold CTA (matches the "because" TrapDoor red).
    ========================================================================= */
 
-const ESTIMATE_URL = "https://because.itsownlymoney.com/#estimate";
 const PLAN_URL = "https://because.itsownlymoney.com/";
 
 export default function EscapeStrip() {
@@ -70,9 +69,9 @@ export default function EscapeStrip() {
             justifyContent: "center",
           }}
         >
-          <a href={ESTIMATE_URL} className="escape-cta">
-            See My Escape Date&nbsp;&rarr;
-          </a>
+          <span className="escape-cue">
+            Push the big red button&nbsp;&darr;
+          </span>
           <a href={PLAN_URL} className="escape-link">
             The Escape Plan&nbsp;&rarr;
           </a>
@@ -80,24 +79,14 @@ export default function EscapeStrip() {
       </div>
 
       <style>{`
-        .escape-cta {
+        .escape-cue {
           display: inline-block;
           font-family: var(--ff-body);
           font-weight: 700;
           font-size: 15px;
-          letter-spacing: 0.02em;
-          color: #FDFCF8;
-          text-decoration: none;
-          padding: 15px 30px;
-          border-radius: 999px;
-          background: linear-gradient(135deg, #f3433d 0%, #d11f2b 58%, #951421 100%);
-          border: 1px solid var(--gold);
-          box-shadow: 0 10px 26px rgba(149,20,33,0.42), 0 0 0 0 rgba(255,60,55,0.5);
-          transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-        .escape-cta:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 14px 32px rgba(149,20,33,0.55), 0 0 22px 4px rgba(232,60,68,0.5);
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: var(--gold-soft);
         }
         .escape-link {
           font-family: var(--ff-display);
