@@ -2,7 +2,6 @@
 import Script from "next/script";
 
 const FRAMEABLE = [
-  "app.mplannerpro.com",
   "e-estate.co",
   "ownly-gap-audit.vercel.app",
   "ownly-business-credit-builder.vercel.app",
