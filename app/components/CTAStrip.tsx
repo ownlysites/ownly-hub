@@ -3,7 +3,6 @@ const CTAS = [
   { label: "E-ESTATE · DIGITAL RE", href: "https://because.itsownlymoney.com/" },
   { label: "6 FIGURE SIT DOWN", href: "https://calendly.com/daveivery/sit_down" },
   { label: "BUSINESS CREDIT SCAN", href: "https://ownly-business-credit-builder.vercel.app/" },
-  { label: "★ COMPLIMENTARY VIP TRIP", href: "https://ownly-vip-trip.vercel.app/?source=hub-cta-strip&audience=vip" },
 ];
 
 export default function CTAStrip() {
@@ -18,6 +17,13 @@ export default function CTAStrip() {
             className="mono cta-pill"
           >{c.label}</a>
         ))}
+      </div>
+      <div className="container" style={{ marginTop: 24 }}>
+        <a
+          href="https://ownly-vip-trip.vercel.app/?source=hub-cta-strip&audience=vip"
+          data-frame="modal"
+          className="mono cta-vip"
+        >★ COMPLIMENTARY VIP TRIP</a>
       </div>
     </section>
   );
