@@ -19,8 +19,8 @@ export default function Page() {
       <Header />
       <main>
         <EscapeStrip />
-        <Hero />
         {SHOW_TRAP_DOOR && <TrapDoor />}
+        <Hero />
         <PathsSection />
         <PullQuote />
         <CTAStrip />
