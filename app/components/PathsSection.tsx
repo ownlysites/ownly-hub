@@ -2,11 +2,11 @@ import PathCard from "./PathCard";
 
 const CARDS = [
   {
-    eyebrow: "FOR THE BUSINESS OWNER",
+    eyebrow: "FOR THE RESTAURANT OWNER",
     headlinePre: "Find the",
     headlineItalic: "capital",
     headlinePost: " your bank never mentioned.",
-    subhead: "Hidden credits, 0% APR business funding, AI agents, and marketing systems. Built for $200K–$10M operators who refuse to leave money on the table.",
+    subhead: "Hidden credits, 0% APR business funding, and marketing systems. Built for operators who refuse to leave money on the table.",
     cta: "Open The Business Breakthrough",
     href: "https://the-ownly-breakthrough.vercel.app/?source=hub&audience=business",
     image: "/hero/business.jpg",
