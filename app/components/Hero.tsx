@@ -52,7 +52,7 @@ export default function Hero() {
             maxWidth: 580, margin: "0 auto 36px",
           }}
         >
-          Two breakthroughs under one roof. One for the business owner finding capital their bank never mentioned. One for the individual finding the wealth hiding between paychecks. Pick the door.
+          Two breakthroughs under one roof. One for the individual finding the wealth hiding between paychecks. One for the individual seeking to learn how to grow their finances at a rapid rate. Pick the door.
         </motion.p>
 
         <motion.div
