@@ -12,6 +12,7 @@ const COLS = [
   { title: "STUDIO", links: [
     { l: "Web Studio", h: "https://ownly-web-studio.vercel.app/" },
     { l: "6 Figure Sit Down", h: "https://calendly.com/daveivery/sit_down" },
+    { l: "Our Credit Partner", h: "https://newageliteracy.com/" },
   ]},
   { title: "CONTACT", links: [
     { l: "david@ownly1nce.com", h: "mailto:david@ownly1nce.com" },
