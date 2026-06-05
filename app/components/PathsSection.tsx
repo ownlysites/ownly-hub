@@ -2,13 +2,13 @@ import PathCard from "./PathCard";
 
 const CARDS = [
   {
-    eyebrow: "FOR THE RESTAURANT OWNER",
+    eyebrow: "FOR THE FAMILY AND PRE-RETIREE",
     headlinePre: "Find the",
-    headlineItalic: "capital",
-    headlinePost: " your bank never mentioned.",
-    subhead: "Hidden credits, 0% APR business funding, and marketing systems. Built for operators who refuse to leave money on the table.",
-    cta: "Open The Business Breakthrough",
-    href: "https://the-ownly-breakthrough.vercel.app/?source=hub&audience=business",
+    headlineItalic: "Cash Flow",
+    headlinePost: " you didn’t know you had.",
+    subhead: "Hidden money, passive strategies, financial planning. Designed for those with short windows to get back on track financially.",
+    cta: "Open the Cash Flow Breakthrough",
+    href: "https://dreams.itsownlymoney.com/",
     image: "/hero/business.jpg",
     loop: "/loops/business.mp4",
     audience: "business" as const,
