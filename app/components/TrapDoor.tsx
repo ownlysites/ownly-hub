@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
    then drops the visitor through to the funnel (same tab).
    ========================================================================= */
 
-const TD_URL = "https://because.itsownlymoney.com/";
+const TD_URL = "https://dreams.itsownlymoney.com/";
 
 export default function TrapDoor() {
   const aRef = useRef<HTMLAnchorElement>(null);
