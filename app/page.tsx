@@ -1,4 +1,3 @@
-import EscapeStrip from "./components/EscapeStrip";
 import Header from "./components/Header";
 import WonderTrustBanner from "./components/WonderTrustBanner";
 import Hero from "./components/Hero";
@@ -18,7 +17,6 @@ export default function Page() {
       <WonderTrustBanner />
       <Header />
       <main>
-        <EscapeStrip />
         {SHOW_TRAP_DOOR && <TrapDoor />}
         <Hero />
         <PathsSection />
