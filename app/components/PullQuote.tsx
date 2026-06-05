@@ -10,7 +10,7 @@ export default function PullQuote() {
           &ldquo;Ownly ONCE is the umbrella over two breakthroughs — one for the individual, one for the household. Both give you the access and ability to take control of your financial future at the pace that is best for you. We don&rsquo;t sell. We <em style={{ color: "var(--gold)" }}>find</em>.&rdquo;
         </p>
         <div className="mono" style={{ color: "var(--text-mute)" }}>
-          — DAVE IVERY · FINANCIAL GROWTH EXPERT · AI-CERTIFIED CONSULTANT · CERTIFIED CASH FLOW COACH · NFEC CFEI · FOUNDER, OWNLY ONCE
+          — DAVE IVERY · FINANCIAL GROWTH EXPERT · AI-CERTIFIED CONSULTANT · CERTIFIED CASH FLOW SPECIALIST · NFEC CFEI · FOUNDER, OWNLY ONCE
         </div>
       </div>
     </section>
