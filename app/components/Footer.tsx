@@ -2,7 +2,7 @@ const COLS = [
   { title: "ECOSYSTEM", links: [
     { l: "Hub", h: "https://ownly-hub.vercel.app" },
     { l: "Breakthrough", h: "https://the-ownly-breakthrough.vercel.app" },
-    { l: "WealthPath", h: "https://ownly-money-breakthrough.vercel.app/?source=hub&audience=individual" },
+    { l: "WealthPath", h: "https://because.itsownlymoney.com/" },
   ]},
   { title: "SCANS", links: [
     { l: "AI Assessment", h: "https://ownly-gap-audit.vercel.app/" },
