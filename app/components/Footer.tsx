@@ -7,7 +7,7 @@ const COLS = [
   { title: "SCANS", links: [
     { l: "AI Assessment", h: "https://ownly-gap-audit.vercel.app/" },
     { l: "Business Credit", h: "https://ownly-business-credit-builder.vercel.app/" },
-    { l: "AI Revenue Generator", h: "https://gb-ownlyagency.multiscreensite.com" },
+    { l: "AI Revenue Generator", h: "https://app.mplannerpro.com/abce1ffefc/chat?pg=dea8573397" },
   ]},
   { title: "STUDIO", links: [
     { l: "Web Studio", h: "https://ownly-web-studio.vercel.app/" },
