@@ -82,7 +82,7 @@ export const PATHS: AudiencePath[] = [
       "Book your Six Figure Sit Down with Dave.",
     ],
     primary: { linkId: "escape_plan", label: "Open the Escape Plan" },
-    secondary: ["ai_audit", "web_studio", "venice_50k", "sit_down"],
+    secondary: ["ai_audit", "web_studio", "planswell", "venice_50k", "sit_down"],
     proof: "Dave Ivery — Certified Cash Flow Specialist · creator of Ownly ONCE",
   },
   {
@@ -100,7 +100,7 @@ export const PATHS: AudiencePath[] = [
       "Check your free IRS penalty refund before July 10, 2026.",
     ],
     primary: { linkId: "money_breakthrough", label: "Open the Money Breakthrough" },
-    secondary: ["cashflow_dreams", "wondertrust", "escape_plan", "signin_wealthpath"],
+    secondary: ["cashflow_dreams", "golden_dream", "planswell", "dental_1dental", "wondertrust", "signin_wealthpath"],
     proof: "Dave Ivery — NFEC Certified Financial Education Instructor",
   },
   {
@@ -136,7 +136,7 @@ export const PATHS: AudiencePath[] = [
       "Still deciding? Book the Six Figure Sit Down and let Dave route you.",
     ],
     primary: { linkId: "vault", label: "Open the All-Tools Vault" },
-    secondary: ["sit_down", "ai_audit", "money_breakthrough"],
+    secondary: ["sit_down", "ai_audit", "money_breakthrough", "daveivery_card"],
     proof: "Every link, preserved. Nothing buried.",
   },
 ];

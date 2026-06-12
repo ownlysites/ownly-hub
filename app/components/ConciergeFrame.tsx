@@ -18,6 +18,8 @@ const FRAMEABLE = [
   "ownly-marketing.vercel.app",
   "dreams.itsownlymoney.com",
   "because.itsownlymoney.com",
+  "golden-dream.itsownlymoney.com",
+  "daveivery.com",
 ];
 
 export default function ConciergeFrame() {

@@ -141,6 +141,8 @@ function SecondaryCTA({ linkId, audience }: { linkId: string; audience: string }
     <a
       href={link.url}
       data-frame={link.frame ? "modal" : undefined}
+      target={!link.frame && link.openInNewTab ? "_blank" : undefined}
+      rel={!link.frame && link.openInNewTab ? "noopener noreferrer" : undefined}
       className="mono cta-pill"
       style={{ fontSize: 10, padding: "11px 18px" }}
       onClick={() => track(`cta_clicked_${link.id}`, { audience, href: link.url, label: link.label })}

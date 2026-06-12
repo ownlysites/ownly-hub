@@ -26,7 +26,8 @@ export type Category =
   | "credit"
   | "ai"
   | "authority"
-  | "vip";
+  | "vip"
+  | "healthcare";
 
 export interface HubLink {
   id: string;
@@ -100,9 +101,8 @@ export const LINKS: Record<string, HubLink> = {
   ai_revenue: {
     id: "ai_revenue",
     label: "AI Revenue Generator",
-    // NEEDS-REVIEW: live itsownlymoney.com uses pg=dea8573397; an uncommitted
-    // local edit used pg=e1dbf00f32. Using the LIVE-verified value — confirm with Dave.
-    url: "https://app.mplannerpro.com/abce1ffefc/chat?pg=dea8573397",
+    // Confirmed by Dave 2026-06-12: pg=e1dbf00f32 is correct.
+    url: "https://app.mplannerpro.com/abce1ffefc/chat?pg=e1dbf00f32",
     audience: ["business"],
     category: "ai",
     priority: 2,
@@ -339,16 +339,49 @@ export const LINKS: Record<string, HubLink> = {
     desc: "One number that tells your family how close freedom really is.",
     pending: true,
   },
-  // TODO(Dave): memory says front door adv-david-124 → Six Figure Sit Down; get exact URL
   planswell: {
     id: "planswell",
     label: "Planswell",
-    url: "#",
+    url: "https://us.planswell.com/discovery/adv-david-124",
     audience: ["self", "household"],
     category: "household",
     priority: 3,
     desc: "A full financial plan, built free.",
-    pending: true,
+    external: true,
+    openInNewTab: true,
+    frame: true,
+  },
+  golden_dream: {
+    id: "golden_dream",
+    label: "Golden Dream — Buying Power",
+    url: "https://golden-dream.itsownlymoney.com",
+    audience: ["household"],
+    category: "household",
+    priority: 2,
+    desc: "Unlock the buying power hiding in your household numbers.",
+    frame: true,
+  },
+  dental_1dental: {
+    id: "dental_1dental",
+    label: "Dental Partner — 1Dental",
+    url: "https://lddy.no/1pg7p?afmc=1lx",
+    audience: ["household"],
+    category: "healthcare",
+    priority: 3,
+    desc: "Dental savings through our trusted partner.",
+    external: true,
+    openInNewTab: true,
+    frame: false,
+  },
+  daveivery_card: {
+    id: "daveivery_card",
+    label: "Dave Ivery",
+    url: "https://daveivery.com",
+    audience: ["all"],
+    category: "authority",
+    priority: 2,
+    desc: "Dave's card — who he is, what he's built, how to reach him.",
+    frame: true,
   },
   // TODO(Dave): URL needed
   tax_retirement: {
@@ -397,7 +430,9 @@ export const VAULT_CATEGORIES: { key: Category; title: string }[] = [
 ];
 
 export function linksByCategory(cat: Category): HubLink[] {
-  const extra = cat === "authority" ? ["vip" as Category] : [];
+  // Folded groups: VIP shows under Dave & Authority, healthcare under Household.
+  const extra: Category[] =
+    cat === "authority" ? ["vip"] : cat === "household" ? ["healthcare"] : [];
   return Object.values(LINKS)
     .filter((l) => l.category === cat || extra.includes(l.category))
     .sort((a, b) => a.priority - b.priority || a.label.localeCompare(b.label));

@@ -146,6 +146,8 @@ export default function EcosystemVault() {
                         <a
                           href={l.url}
                           data-frame={l.frame ? "modal" : undefined}
+                          target={!l.frame && l.openInNewTab ? "_blank" : undefined}
+                          rel={!l.frame && l.openInNewTab ? "noopener noreferrer" : undefined}
                           onClick={() => track(`cta_clicked_${l.id}`, { source: "vault", href: l.url, label: l.label })}
                           style={{
                             display: "block",

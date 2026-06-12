@@ -73,6 +73,8 @@ export default function AuthorityBlock() {
                           <a
                             href={l.url}
                             data-frame={l.frame ? "modal" : undefined}
+                            target={!l.frame && l.openInNewTab ? "_blank" : undefined}
+                            rel={!l.frame && l.openInNewTab ? "noopener noreferrer" : undefined}
                             style={{ fontSize: 13.5, color: "var(--ink)", textDecoration: "none", borderBottom: "1px solid var(--hairline)" }}
                           >
                             {l.label}
