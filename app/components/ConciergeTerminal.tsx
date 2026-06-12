@@ -313,11 +313,11 @@ const TERMINAL_CSS = `
 .ct-hud .dot{width:7px;height:7px;border-radius:50%;background:#D4B87A;box-shadow:0 0 12px #D4B87A;animation:ct-bp 1.6s ease-in-out infinite}
 @keyframes ct-bp{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
 .ct-hud .brand{font-family:var(--ff-display);font-size:15px;letter-spacing:.06em;text-transform:none;color:#FDFCF8}
-.ct-view{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;padding:90px 24px;opacity:0;visibility:hidden;transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.ct-view{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow-y:auto;padding:90px 24px;opacity:0;visibility:hidden;transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
 .ct-view.active{opacity:1;visibility:visible}
 .ct-console{transform:scale(1)}
 .ct-console.dismissed{opacity:0;visibility:hidden;transform:scale(.92);filter:blur(6px)}
-.ct-console-inner{width:min(1060px,100%);text-align:center;max-height:100%;overflow-y:auto}
+.ct-console-inner{width:min(1060px,100%);text-align:center;margin:auto 0}
 .ct-reticle{position:absolute;top:50%;left:50%;width:760px;height:760px;margin:-380px 0 0 -380px;z-index:-1;opacity:.18;pointer-events:none}
 .ct-reticle svg{width:100%;height:100%;animation:ct-spin 60s linear infinite}
 @keyframes ct-spin{to{transform:rotate(360deg)}}
@@ -346,7 +346,7 @@ const TERMINAL_CSS = `
 .ct-key:hover .enter .ar{transform:translateX(5px)}
 .ct-stage{transform:scale(1.04)}
 .ct-stage.active{transform:scale(1)}
-.ct-stage-inner{width:min(980px,100%);position:relative;max-height:100%;overflow-y:auto;padding-top:54px}
+.ct-stage-inner{width:min(980px,100%);position:relative;margin:auto 0;padding-top:54px}
 .ct-stage-grid{display:grid;grid-template-columns:1fr 230px;gap:40px;align-items:start}
 @media(max-width:820px){.ct-stage-grid{grid-template-columns:1fr}.ct-telemetry{display:none}}
 .ct-stage-id{font-family:var(--ff-display);font-size:clamp(64px,11vw,120px);font-weight:500;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--accent);opacity:.5;margin-bottom:6px}
