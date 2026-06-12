@@ -237,8 +237,8 @@ export const LINKS: Record<string, HubLink> = {
     id: "venice_50k",
     label: "Venice 50K Challenge",
     url: "https://venice50kchallenge.com",
-    audience: ["self"],
-    category: "authority",
+    audience: ["business"],
+    category: "business",
     priority: 3,
     desc: "The challenge that turns hustle into a repeatable income system.",
     frame: true,
@@ -468,9 +468,10 @@ export const VAULT_CATEGORIES: { key: Category; title: string }[] = [
 ];
 
 export function linksByCategory(cat: Category): HubLink[] {
-  // Folded groups: VIP shows under Dave & Authority, healthcare under Household.
+  // Folded groups: VIP shows under Dave & Authority. Healthcare (1Dental) is
+  // NOT surfaced standalone — it lives inside the Money Breakthrough health section.
   const extra: Category[] =
-    cat === "authority" ? ["vip"] : cat === "household" ? ["healthcare"] : [];
+    cat === "authority" ? ["vip"] : [];
   return Object.values(LINKS)
     .filter((l) => l.category === cat || extra.includes(l.category))
     .sort((a, b) => a.priority - b.priority || a.label.localeCompare(b.label));
