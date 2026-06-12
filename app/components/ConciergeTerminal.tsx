@@ -33,7 +33,6 @@ export default function ConciergeTerminal() {
   const rootRef = useRef<HTMLDivElement>(null);
   const starRef = useRef<HTMLCanvasElement>(null);
   const keyRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const [clock, setClock] = useState("--:--:-- UTC");
 
   /* ---- starfield ---- */
   useEffect(() => {
@@ -73,14 +72,6 @@ export default function ConciergeTerminal() {
     ro.observe(root);
     raf = requestAnimationFrame(draw);
     return () => { cancelAnimationFrame(raf); ro.disconnect(); };
-  }, []);
-
-  /* ---- clock ---- */
-  useEffect(() => {
-    const tick = () => setClock(new Date().toISOString().slice(11, 19) + " UTC");
-    tick();
-    const iv = setInterval(tick, 1000);
-    return () => clearInterval(iv);
   }, []);
 
   /* ---- boot sequence ---- */
@@ -167,7 +158,6 @@ export default function ConciergeTerminal() {
         <span className="live"><span className="dot" aria-hidden />
           <span>{active ? active.label : "Concierge online"}</span>
         </span>
-        <span className="num">{clock}</span>
       </div>
       <div className="ct-hud bot">
         <span>{active ? `Sector 0${idx + 1} · ${active.id} channel` : "Select a door · your world only"}</span>
@@ -306,7 +296,7 @@ function SectorLink({ cta, audience, className, arrow }: { cta: SectorCTA; audie
 /* Prototype CSS, scoped under .ct-root (fixed → absolute so the WonderTrust
    strip can sit above the terminal in the page flow). */
 const TERMINAL_CSS = `
-.ct-root{position:relative;flex:1;min-height:0;overflow:hidden;background:var(--ink-deep,#060B16);color:#FDFCF8;font-family:var(--ff-body);--mute:#7E8CA3}
+.ct-root{position:relative;flex:1 1 auto;width:100%;align-self:stretch;min-height:0;overflow:hidden;background:var(--ink-deep,#060B16);color:#FDFCF8;font-family:var(--ff-body);--mute:#7E8CA3}
 .ct-root .num{font-variant-numeric:lining-nums tabular-nums}
 .ct-star{position:absolute;inset:0;z-index:0}
 .ct-vignette{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 100% at 50% 30%,transparent 40%,rgba(0,0,0,.55) 100%)}
