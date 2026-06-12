@@ -14,7 +14,7 @@
   --color-gold:        #B8965A;
   --color-gold-warm:   #C9A767;
   --color-gold-soft:   #D4B87A;
-  --color-gold-dark:   #8B7044;
+  --color-gold-dark:   #79613B;
   /* SEMANTIC */
   --color-green:       #3F6F47;
   /* TYPE — served by next/font (see layout.tsx); Google-hosted names kept as fallback */
@@ -38,7 +38,7 @@
   --gold:        #B8965A;
   --gold-warm:   #C9A767;
   --gold-soft:   #D4B87A;
-  --gold-dark:   #8B7044;
+  --gold-dark:   #79613B;
   --green:       #3F6F47;
   --hairline:    rgba(184,150,90,0.35);
   --ff-display:  var(--nf-cormorant, 'Cormorant Garamond'), Georgia, serif;
