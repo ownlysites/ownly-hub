@@ -1,38 +1,25 @@
-import Header from "./components/Header";
 import WonderTrustBanner from "./components/WonderTrustBanner";
-import Hero from "./components/Hero";
-import TrapDoor from "./components/TrapDoor";
-import PathExperience from "./components/PathExperience";
-import PullQuote from "./components/PullQuote";
-import AuthorityBlock from "./components/AuthorityBlock";
-import CTAStrip from "./components/CTAStrip";
-import Footer from "./components/Footer";
+import ConciergeTerminal from "./components/ConciergeTerminal";
 import ConciergeFrame from "./components/ConciergeFrame";
-import EcosystemVault from "./components/EcosystemVault";
-import StickyMobileCTA from "./components/StickyMobileCTA";
 import SeoSchema from "./components/SeoSchema";
+import AuthorityBlock from "./components/AuthorityBlock";
 
-// Flip to true + push to go live. Staged 2026-05-30 — NOT live yet.
-const SHOW_TRAP_DOOR = true;
-
+/* The Concierge Terminal IS the homepage — a gated, no-scroll command center.
+   The AuthorityBlock (Dave credentials + full crawlable tool index) renders
+   server-side but visually hidden, so crawlers and screen readers get every
+   link even though the terminal is JS-gated. */
 export default function Page() {
   return (
-    <>
+    <div style={{ height: "100dvh", display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <WonderTrustBanner />
-      <Header />
-      <main>
-        <Hero />
-        <PathExperience />
-        {SHOW_TRAP_DOOR && <TrapDoor />}
-        <PullQuote />
-        <AuthorityBlock />
-        <CTAStrip />
+      <main style={{ flex: 1, minHeight: 0, display: "flex", flexDirection: "column" }}>
+        <ConciergeTerminal />
+        <div className="sr-only">
+          <AuthorityBlock />
+        </div>
       </main>
-      <Footer />
-      <EcosystemVault />
-      <StickyMobileCTA />
       <ConciergeFrame />
       <SeoSchema />
-    </>
+    </div>
   );
 }

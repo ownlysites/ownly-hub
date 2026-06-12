@@ -1,13 +1,28 @@
 "use client";
+import { useEffect, useState } from "react";
 
 // Time-sensitive WonderTrust IRS Penalty + Interest Refund banner.
 // Locked 2026-05-20. Live until July 10, 2026 (federal protective-claim deadline).
-// Sits between Header and Hero on the editorial splash router.
+// Thin dismissible gold strip above the Concierge Terminal.
 
 export default function WonderTrustBanner() {
   const deadline = new Date("2026-07-10T23:59:59Z").getTime();
   const today = Date.now();
   const daysLeft = Math.max(0, Math.ceil((deadline - today) / (1000 * 60 * 60 * 24)));
+
+  // Dismiss persists for the session; read in effect to avoid hydration mismatch.
+  const [dismissed, setDismissed] = useState(false);
+  useEffect(() => {
+    try { if (sessionStorage.getItem("wt_dismissed")) setDismissed(true); } catch {}
+  }, []);
+  function dismiss(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    setDismissed(true);
+    try { sessionStorage.setItem("wt_dismissed", "1"); } catch {}
+  }
+
+  if (dismissed) return null;
 
   return (
     <a
@@ -38,6 +53,15 @@ export default function WonderTrustBanner() {
         {daysLeft} DAYS LEFT
       </span>
       <span style={{ marginLeft: 12, fontWeight: 700 }}>Check eligibility — free &rarr;</span>
+      <button
+        onClick={dismiss}
+        aria-label="Dismiss banner"
+        style={{
+          position: "absolute", right: 10, top: "50%", transform: "translateY(-50%)",
+          background: "none", border: 0, cursor: "pointer",
+          color: "var(--ink-deep, #0a0e1a)", fontSize: 16, lineHeight: 1, padding: 6,
+        }}
+      >✕</button>
     </a>
   );
 }
