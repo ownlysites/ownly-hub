@@ -43,6 +43,10 @@ export interface HubLink {
   frame?: boolean;
   /** URL not yet confirmed by Dave — render disabled, never navigate. */
   pending?: boolean;
+  /** Lifecycle status. Defaults derived in normalize step below. */
+  status?: "active" | "needs-review" | "coming-soon";
+  /** Analytics event id. Defaults to cta_clicked_<id> in normalize step. */
+  trackingId?: string;
 }
 
 export const LINKS: Record<string, HubLink> = {
@@ -74,7 +78,7 @@ export const LINKS: Record<string, HubLink> = {
     audience: ["household"],
     category: "household",
     priority: 1,
-    desc: "Income Snowball, Spendthrift Trust strategy, 8.5% bonds, and the Family Legacy Score.",
+    desc: "The Income Snowball method, trust-based tax strategies, fixed-income options, and the Family Legacy Score — designed to put idle money to work.",
     primaryCTA: true,
     frame: true,
   },
@@ -184,7 +188,7 @@ export const LINKS: Record<string, HubLink> = {
     audience: ["all"],
     category: "credit",
     priority: 1,
-    desc: "The IRS may owe you a refund on penalties & interest 2020–2023. Free check, deadline July 10, 2026.",
+    desc: "You may be eligible for a refund on IRS penalties & interest from 2020–2023. Free eligibility check; window open through July 10, 2026.",
     external: true,
     frame: true,
   },
@@ -251,93 +255,102 @@ export const LINKS: Record<string, HubLink> = {
   },
 
   /* -------- NEEDS DAVE URL — placeholders, never navigate -------- */
-  // TODO(Dave): confirm URL — possibly the-ownly-breakthrough…?audience=restaurant
+  // Confirmed by Dave 2026-06-12: audience=restaurant renders restaurant content.
   restaurant_breakthrough: {
     id: "restaurant_breakthrough",
     label: "Restaurant Breakthrough",
-    url: "#",
+    url: "https://the-ownly-breakthrough.vercel.app/?source=hub&audience=restaurant",
     audience: ["restaurant"],
     category: "restaurant",
     priority: 1,
     desc: "The breakthrough sequence, tuned for restaurant economics.",
-    pending: true,
+    frame: true,
   },
-  // TODO(Dave): URL needed
+  // TODO(Dave): dedicated page pending — routed to the Sit Down so the offer stays live.
   restaurant_gpt: {
     id: "restaurant_gpt",
-    label: "RestaurantGPT Profit-Leak Scan",
-    url: "#",
+    label: "Ask Dave about RestaurantGPT",
+    url: "https://calendly.com/daveivery/sit_down",
     audience: ["restaurant"],
     category: "restaurant",
     priority: 2,
-    desc: "AI scan for the profit leaks your POS reports never show.",
-    pending: true,
+    desc: "AI that finds the profit leaks your POS reports never show. Walk through it on the Sit Down.",
+    external: true,
+    openInNewTab: true,
+    frame: true,
+    status: "needs-review",
   },
-  // TODO(Dave): URL needed
   fica_tip_credit: {
     id: "fica_tip_credit",
     label: "FICA Tip Credit Check",
-    url: "#",
+    url: "https://tipcreditpartners.com/89eb?c=3ef54b9f",
     audience: ["restaurant"],
     category: "restaurant",
     priority: 2,
-    desc: "See if the IRS owes your restaurant money on tipped payroll.",
-    pending: true,
+    desc: "Your restaurant may be owed money on tipped payroll. Partner program; disclosures on their page.",
+    external: true,
+    openInNewTab: true,
   },
-  // TODO(Dave): URL needed
   arf_capital: {
     id: "arf_capital",
-    label: "Restaurant Capital (ARF)",
-    url: "#",
-    audience: ["restaurant"],
-    category: "restaurant",
+    label: "Restaurant Capital — ARF",
+    url: "https://arffinancial.my.site.com/portal/ARFPreQualify?prequalgd=41c65bbe-31b7-44c1-9fde-0bbddd7459d9&RPId=0034y00002BXNYXAA5",
+    audience: ["restaurant", "business"],
+    category: "credit",
     priority: 3,
-    desc: "Capital access built for restaurant cash cycles.",
-    pending: true,
+    desc: "A revolving line built for restaurant cash cycles. Soft-pull pre-qual via our partner ARF Financial.",
+    external: true,
+    openInNewTab: true,
   },
-  // TODO(Dave): URL needed
   ringfoods: {
     id: "ringfoods",
     label: "RingFoods",
-    url: "#",
+    url: "https://www.ringfoods.com?ref=DAVEIVERYINC813",
     audience: ["restaurant"],
     category: "restaurant",
     priority: 3,
-    desc: "Food-cost leverage for operators.",
-    pending: true,
+    desc: "Food-cost leverage for operators, through our partner RingFoods.",
+    external: true,
+    openInNewTab: true,
   },
-  // TODO(Dave): URL needed
+  // No standalone page — routed to the Sit Down so the offer stays live.
   stella: {
     id: "stella",
-    label: "Stella",
-    url: "#",
+    label: "Ask Dave about Stella",
+    url: "https://calendly.com/daveivery/sit_down",
     audience: ["restaurant"],
     category: "restaurant",
     priority: 3,
-    desc: "Front-of-house AI for restaurants.",
-    pending: true,
+    desc: "Front-of-house AI for restaurants — walk through it on the Sit Down.",
+    external: true,
+    openInNewTab: true,
+    frame: true,
+    status: "needs-review",
   },
-  // TODO(Dave): URL needed
+  // No standalone page — routed to the Sit Down so the offer stays live.
   missed_call: {
     id: "missed_call",
-    label: "Missed-Call Speed-to-Lead",
-    url: "#",
+    label: "Speed-to-Lead — Ask Dave",
+    url: "https://calendly.com/daveivery/sit_down",
     audience: ["restaurant"],
     category: "restaurant",
     priority: 3,
-    desc: "Every missed call answered, every lead caught.",
-    pending: true,
+    desc: "Every missed call answered, every lead caught. Set it up on the Sit Down.",
+    external: true,
+    openInNewTab: true,
+    frame: true,
+    status: "needs-review",
   },
-  // TODO(Dave): URL needed
+  // Confirmed by Dave 2026-06-12: lives on the Money Breakthrough. Keep surfaced — do not bury.
   freedom_score: {
     id: "freedom_score",
     label: "Freedom Score",
-    url: "#",
+    url: "https://ownly-money-breakthrough.vercel.app/?source=hub&audience=individual",
     audience: ["household"],
     category: "household",
     priority: 2,
     desc: "One number that tells your family how close freedom really is.",
-    pending: true,
+    frame: true,
   },
   planswell: {
     id: "planswell",
@@ -383,40 +396,65 @@ export const LINKS: Record<string, HubLink> = {
     desc: "Dave's card — who he is, what he's built, how to reach him.",
     frame: true,
   },
-  // TODO(Dave): URL needed
+  // No standalone page — routed to the Sit Down so the offer stays live.
   tax_retirement: {
     id: "tax_retirement",
     label: "Tax & Retirement Strategy",
-    url: "#",
+    url: "https://calendly.com/daveivery/sit_down",
     audience: ["self"],
     category: "self",
     priority: 2,
-    desc: "Keep more of what 1099 life earns you.",
-    pending: true,
+    desc: "Keep more of what 1099 life earns you — mapped on the Sit Down.",
+    external: true,
+    openInNewTab: true,
+    frame: true,
+    status: "needs-review",
   },
-  // TODO(Dave): likely a Calendly — confirm
+  // Routed to the Sit Down booking until a dedicated restaurant-review page exists.
   restaurant_review: {
     id: "restaurant_review",
     label: "Book a Restaurant Money Review",
-    url: "#",
+    url: "https://calendly.com/daveivery/sit_down",
     audience: ["restaurant"],
     category: "restaurant",
     priority: 1,
     desc: "A focused review of where your restaurant's money is hiding.",
-    pending: true,
+    external: true,
+    openInNewTab: true,
+    frame: true,
+    status: "needs-review",
   },
-  // TODO(Dave): URLs needed
   dave_books: {
     id: "dave_books",
-    label: "Dave's Books",
-    url: "#",
+    label: "Dave's Books — 5-Time Author",
+    url: "https://www.amazon.com/author/davidjamesivery",
     audience: ["all"],
     category: "authority",
     priority: 3,
-    desc: "Five books on money, ownership, and control.",
-    pending: true,
+    desc: "Five books on finding hidden money, ownership, and control.",
+    external: true,
+    openInNewTab: true,
+  },
+  pfsa: {
+    id: "pfsa",
+    label: "Personal Finance Speakers Association",
+    url: "https://www.financialeducatorscouncil.org/david-ivery/",
+    audience: ["all"],
+    category: "authority",
+    priority: 4,
+    desc: "Dave's PFSA member profile.",
+    external: true,
+    openInNewTab: true,
   },
 };
+
+/* Normalize: fill registry-wide defaults so every link carries a trackingId
+   and a status without hand-editing all ~30 entries. */
+for (const id of Object.keys(LINKS)) {
+  const l = LINKS[id];
+  if (!l.trackingId) l.trackingId = `cta_clicked_${id}`;
+  if (!l.status) l.status = l.pending ? "coming-soon" : "active";
+}
 
 /** Vault drawer categories, in display order. */
 export const VAULT_CATEGORIES: { key: Category; title: string }[] = [

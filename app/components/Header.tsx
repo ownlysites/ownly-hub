@@ -57,6 +57,7 @@ export default function Header() {
         <nav className="nav-desktop" aria-label="Primary" style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <button style={linkStyle} onClick={scrollToPaths}>Choose Path</button>
           <button style={linkStyle} onClick={() => requestPath("business")}>Business</button>
+          <button style={linkStyle} onClick={() => requestPath("restaurant")}>Restaurant</button>
           <button style={linkStyle} onClick={() => requestPath("household")}>Household</button>
           <a
             href={aiAudit.url}

@@ -55,17 +55,17 @@ export const PATHS: AudiencePath[] = [
     label: "I run a restaurant",
     card: "Profit leaks your POS reports never show.",
     cardCta: "Show me the restaurant path",
-    headline: "Restaurants leak profit in places the POS never shows.",
+    headline: "Restaurants leak profit where the POS never looks.",
     explanation:
-      "Tip credits, missed calls, food cost, local visibility — each one is a quiet leak. Start with eight minutes, see the full picture, then sit down and plug them in order.",
+      "Missed calls, slow speed-to-lead, weak guest capture, thin local visibility, food cost, and tip-credit dollars left on the table — each is a quiet leak. Start with eight minutes to see the full picture, then sit down and plug them in order.",
     steps: [
       "Take the 8 Minute Audit — one clear picture of the leaks.",
       "Put your restaurant in front of nearby buyers with Local Spotlight.",
-      "Book your Six Figure Sit Down to map the rest.",
+      "Book your Restaurant Money Review and map the rest with Dave.",
     ],
-    primary: { linkId: "sit_down", label: "Book the Six Figure Sit Down" },
-    secondary: ["eight_min_audit", "local_spotlight", "biz_credit", "restaurant_gpt", "fica_tip_credit"],
-    proof: "Restaurant tools rolling out now — the Sit Down gets you in first.",
+    primary: { linkId: "restaurant_breakthrough", label: "Open the Restaurant Breakthrough" },
+    secondary: ["eight_min_audit", "local_spotlight", "fica_tip_credit", "arf_capital", "restaurant_review"],
+    proof: "Built for operators — open the Breakthrough or book your Restaurant Money Review.",
   },
   {
     id: "self",
@@ -93,11 +93,11 @@ export const PATHS: AudiencePath[] = [
     cardCta: "Show me the household path",
     headline: "The wealth is hiding between the paychecks.",
     explanation:
-      "The Money Breakthrough is the household sequence — the patented Income Snowball, the Spendthrift Trust tax strategy, 8.5% bonds, and the Family Legacy Score. DREAMS handles short runways to retirement.",
+      "The Money Breakthrough is the household sequence — the Income Snowball method, trust-based tax strategies, fixed-income options, and the Family Legacy Score, designed to surface money you can redirect. DREAMS is built for short runways to retirement.",
     steps: [
       "Open the Money Breakthrough and meet the Income Snowball.",
       "Short window to retirement? Open Cash Flow · DREAMS.",
-      "Check your free IRS penalty refund before July 10, 2026.",
+      "Review your eligibility for an IRS penalty refund — open through July 10, 2026.",
     ],
     primary: { linkId: "money_breakthrough", label: "Open the Money Breakthrough" },
     secondary: ["cashflow_dreams", "golden_dream", "planswell", "dental_1dental", "wondertrust", "signin_wealthpath"],

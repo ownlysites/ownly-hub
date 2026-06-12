@@ -285,6 +285,43 @@ h1, h2, h3, .display { font-family: var(--ff-display); font-weight: 500; letter-
 }
 
 /* ============================================================
+   Premium navy concierge hero
+   ============================================================ */
+.hero-navy {
+  position: relative; overflow: hidden;
+  min-height: 90vh; display: flex; align-items: center;
+  background: radial-gradient(130% 120% at 50% -10%, #16294a 0%, var(--ink) 52%, var(--ink-deep) 100%);
+  padding: 96px 0 90px;
+}
+.hero-inner { position: relative; z-index: 2; }
+.hero-guilloche {
+  position: absolute; top: -170px; right: -150px;
+  width: 620px; height: 620px; opacity: 0.5; pointer-events: none; z-index: 1;
+}
+.concierge-chip {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: rgba(184,150,90,0.08); border: 1px solid rgba(184,150,90,0.30);
+  border-radius: 999px; padding: 8px 16px 8px 13px; margin-bottom: 26px;
+  font-size: 13px; color: var(--gold-soft);
+}
+.c-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--gold-soft);
+  box-shadow: 0 0 14px rgba(212,184,122,0.9); animation: c-pulse 1.6s ease-in-out infinite;
+}
+@keyframes c-pulse { 0%,100%{opacity:.55;transform:scale(1)} 50%{opacity:1;transform:scale(1.25)} }
+.btn-ghost-ink {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(184,150,90,0.35); color: var(--gold-soft); background: transparent;
+  padding: 13px 27px; border-radius: 999px; font-weight: 600; font-size: 14px;
+  text-decoration: none; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease;
+}
+.btn-ghost-ink:hover { background: rgba(184,150,90,0.10); border-color: var(--gold); }
+@media (max-width: 768px) {
+  .hero-navy { min-height: auto; padding: 64px 0 72px; }
+  .hero-guilloche { width: 380px; height: 380px; top: -120px; right: -150px; opacity: 0.32; }
+}
+
+/* ============================================================
    Reduced motion — fall back to a gentle opacity fade,
    not zero motion. Editorial restraint, still alive.
    ============================================================ */

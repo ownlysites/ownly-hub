@@ -9,6 +9,7 @@ const COLS = [
     { l: "Hub", h: L("hub") },
     { l: "Breakthrough", h: L("biz_breakthrough") },
     { l: "WealthPath", h: L("escape_plan") },
+    { l: "DaveIvery.com", h: L("daveivery_card") },
   ]},
   { title: "SCANS", links: [
     { l: "AI Assessment", h: L("ai_audit") },
