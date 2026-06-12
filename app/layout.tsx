@@ -1,16 +1,40 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+import { Cormorant_Garamond, Inter, JetBrains_Mono } from "next/font/google";
+
+/* Self-hosted via next/font: preloaded, metric-matched fallbacks — removes
+   the render-blocking Google Fonts CSS and the font-swap layout shift. */
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--nf-inter",
+  display: "swap",
+});
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--nf-cormorant",
+  display: "swap",
+});
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--nf-mono",
+  display: "swap",
+  preload: false,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://itsownlymoney.com"),
-  title: "Ownly ONCE — Find the credit, capital, and AI your business is missing.",
+  title: "Ownly ONCE — Business, Cash Flow, Capital, AI & Wealth Tools",
   description:
-    "An editorial-luxury holding company for SMB owners, real-estate agents, and individuals. Built around the 6 Figure Sit Down and the F.A.C.T. methodology.",
+    "Tell us who you are — business owner, restaurant operator, agent, employee, or family — and the Ownly ONCE concierge shows you where the money is hiding. Credit, capital, cash flow, and AI tools under one roof.",
   openGraph: {
-    title: "Ownly ONCE — Own nothing. Control everything.",
+    title: "Ownly ONCE — Business, Cash Flow, Capital, AI & Wealth Tools",
     description:
-      "A growing ecosystem of financial-education, capital-access, and AI-consulting properties for owners who refuse to leave money on the table.",
+      "One ecosystem, six doors. Business credit, restaurant profit recovery, household cash flow, self-employed escape plans, and AI tools — built around the Six Figure Sit Down.",
     url: "https://itsownlymoney.com",
     siteName: "Ownly ONCE",
     images: [{ url: "/og.jpg", width: 1200, height: 630 }],
@@ -18,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ownly ONCE — Own nothing. Control everything.",
+    title: "Ownly ONCE — Business, Cash Flow, Capital, AI & Wealth Tools",
     description:
-      "An editorial-luxury holding company for SMB owners, real-estate agents, and individuals.",
+      "Tell us who you are. We'll show you where the money is hiding.",
     images: ["/og.jpg"],
   },
   alternates: { canonical: "https://itsownlymoney.com/" },
@@ -66,21 +90,15 @@ const siteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${cormorant.variable} ${jetbrains.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
         <link rel="icon" href="/icon.png" type="image/png" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }} />
       </head>
       <body>
         {children}
-        <Script id="apollo-tracker" strategy="afterInteractive">
+        <Script id="apollo-tracker" strategy="lazyOnload">
           {`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"68000000000000000000"})},document.head.appendChild(o)}initApollo();`}
         </Script>
       </body>

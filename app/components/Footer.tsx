@@ -1,18 +1,24 @@
+import { getLink } from "../data/links";
+
+/* Footer columns now read from the central link registry (app/data/links.ts)
+   so footer destinations can never drift from the rest of the hub. */
+const L = (id: string) => getLink(id).url;
+
 const COLS = [
   { title: "ECOSYSTEM", links: [
-    { l: "Hub", h: "https://ownly-hub.vercel.app" },
-    { l: "Breakthrough", h: "https://the-ownly-breakthrough.vercel.app" },
-    { l: "WealthPath", h: "https://because.itsownlymoney.com/" },
+    { l: "Hub", h: L("hub") },
+    { l: "Breakthrough", h: L("biz_breakthrough") },
+    { l: "WealthPath", h: L("escape_plan") },
   ]},
   { title: "SCANS", links: [
-    { l: "AI Assessment", h: "https://ownly-gap-audit.vercel.app/" },
-    { l: "Business Credit", h: "https://ownly-business-credit-builder.vercel.app/" },
-    { l: "AI Revenue Generator", h: "https://app.mplannerpro.com/abce1ffefc/chat?pg=dea8573397" },
+    { l: "AI Assessment", h: L("ai_audit") },
+    { l: "Business Credit", h: L("biz_credit") },
+    { l: "AI Revenue Generator", h: L("ai_revenue") },
   ]},
   { title: "STUDIO", links: [
-    { l: "Web Studio", h: "https://ownly-web-studio.vercel.app/" },
-    { l: "6 Figure Sit Down", h: "https://calendly.com/daveivery/sit_down" },
-    { l: "Our Credit Partner", h: "https://newageliteracy.com/" },
+    { l: "Web Studio", h: L("web_studio") },
+    { l: "6 Figure Sit Down", h: L("sit_down") },
+    { l: "Our Credit Partner", h: L("credit_partner") },
   ]},
   { title: "CONTACT", links: [
     { l: "david@ownly1nce.com", h: "mailto:david@ownly1nce.com" },
@@ -39,7 +45,7 @@ export default function Footer() {
             <span style={{ fontFamily: "var(--ff-display)", fontWeight: 500, fontSize: 22 }}>Ownly ONCE</span>
           </div>
           <p style={{ fontFamily: "var(--ff-display)", fontStyle: "italic", color: "var(--text-mute)", fontSize: 16, margin: 0, maxWidth: 280, lineHeight: 1.45 }}>
-            Own nothing. <em style={{ color: "var(--gold)" }}>Control everything.</em>
+            Own nothing. <em style={{ color: "var(--gold-dark)" }}>Control everything.</em>
           </p>
         </div>
         {COLS.map(c => (
@@ -63,7 +69,7 @@ export default function Footer() {
       }}>
         <span className="mono" style={{ color: "var(--text-mute)" }}>VOL.I · NO.01 · MMXXVI</span>
         {/* VIP-ALUMNI */}
-        <a className="mono" href="https://ownly-vip-trip.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold-dark)", textDecoration: "none", letterSpacing: "0.12em" }}>★ 6FSD ALUMNI · VIP TRIP</a>
+        <a className="mono" href={L("vip_trip")} target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold-dark)", textDecoration: "none", letterSpacing: "0.12em" }}>★ SIX FIGURE SIT DOWN ALUMNI · VIP TRIP</a>
         {/* /VIP-ALUMNI */}
         <span className="mono" style={{ color: "var(--text-mute)" }}>
           © 2026 OWNLY ONCE LLC · SARASOTA, FL · AN OWNLY ONCE PUBLICATION

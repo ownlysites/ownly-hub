@@ -1,0 +1,410 @@
+/* =========================================================================
+   CENTRAL LINK REGISTRY — single source of truth for every destination
+   on the Ownly Concierge hub. Verified against live source 2026-06-12
+   (HUB_REDESIGN_HANDOFF.md → "LINK REGISTRY (VERIFIED)").
+
+   Rules:
+   - Never invent a destination. Unknown URLs stay "#" with pending:true.
+   - frame:true → link renders with data-frame="modal" so ConciergeFrame
+     previews it in-page (if hostname is in its FRAMEABLE allowlist).
+   ========================================================================= */
+
+export type Audience =
+  | "business"
+  | "restaurant"
+  | "self"
+  | "household"
+  | "vip"
+  | "all";
+
+export type Category =
+  | "core"
+  | "business"
+  | "restaurant"
+  | "household"
+  | "self"
+  | "credit"
+  | "ai"
+  | "authority"
+  | "vip";
+
+export interface HubLink {
+  id: string;
+  label: string;
+  url: string;
+  audience: Audience[];
+  category: Category;
+  priority: number; // 1 = highest
+  desc: string;
+  primaryCTA?: boolean;
+  external?: boolean;
+  openInNewTab?: boolean;
+  frame?: boolean;
+  /** URL not yet confirmed by Dave — render disabled, never navigate. */
+  pending?: boolean;
+}
+
+export const LINKS: Record<string, HubLink> = {
+  /* ---------------- VERIFIED (live source 2026-06-12) ---------------- */
+  hub: {
+    id: "hub",
+    label: "Ownly ONCE Hub",
+    url: "https://itsownlymoney.com/",
+    audience: ["all"],
+    category: "core",
+    priority: 1,
+    desc: "The front door to the entire Ownly ecosystem.",
+  },
+  biz_breakthrough: {
+    id: "biz_breakthrough",
+    label: "Business Breakthrough",
+    url: "https://the-ownly-breakthrough.vercel.app/?source=hub&audience=business",
+    audience: ["business"],
+    category: "business",
+    priority: 1,
+    desc: "The flagship path for owners — credit, capital, and AI leverage in one sequence.",
+    primaryCTA: true,
+    frame: true,
+  },
+  money_breakthrough: {
+    id: "money_breakthrough",
+    label: "Money Breakthrough",
+    url: "https://ownly-money-breakthrough.vercel.app/?source=hub&audience=individual",
+    audience: ["household"],
+    category: "household",
+    priority: 1,
+    desc: "Income Snowball, Spendthrift Trust strategy, 8.5% bonds, and the Family Legacy Score.",
+    primaryCTA: true,
+    frame: true,
+  },
+  ai_audit: {
+    id: "ai_audit",
+    label: "AI Assessment",
+    url: "https://ownly-gap-audit.vercel.app/",
+    audience: ["business", "self"],
+    category: "ai",
+    priority: 1,
+    desc: "Free 10-minute scan that finds the gaps AI can close in your operation.",
+    frame: true,
+  },
+  biz_credit: {
+    id: "biz_credit",
+    label: "Business Credit & Fundability Scan",
+    url: "https://ownly-business-credit-builder.vercel.app/",
+    audience: ["business"],
+    category: "credit",
+    priority: 1,
+    desc: "See what lenders see — and what's keeping capital out of reach.",
+    frame: true,
+  },
+  ai_revenue: {
+    id: "ai_revenue",
+    label: "AI Revenue Generator",
+    // NEEDS-REVIEW: live itsownlymoney.com uses pg=dea8573397; an uncommitted
+    // local edit used pg=e1dbf00f32. Using the LIVE-verified value — confirm with Dave.
+    url: "https://app.mplannerpro.com/abce1ffefc/chat?pg=dea8573397",
+    audience: ["business"],
+    category: "ai",
+    priority: 2,
+    desc: "A working AI revenue engine you can test-drive in your browser.",
+    external: true,
+    openInNewTab: true,
+    frame: true,
+  },
+  web_studio: {
+    id: "web_studio",
+    label: "Web Studio",
+    url: "https://ownly-web-studio.vercel.app/",
+    audience: ["business", "self"],
+    category: "ai",
+    priority: 2,
+    desc: "Sites and funnels built with AI speed, editorial polish.",
+    frame: true,
+  },
+  sit_down: {
+    id: "sit_down",
+    label: "Six Figure Sit Down",
+    url: "https://calendly.com/daveivery/sit_down",
+    audience: ["all"],
+    category: "authority",
+    priority: 1,
+    desc: "One conversation with Dave that maps where the money is hiding.",
+    primaryCTA: true,
+    external: true,
+    openInNewTab: true,
+    frame: true,
+  },
+  vip_trip: {
+    id: "vip_trip",
+    label: "VIP Trip",
+    url: "https://ownly-vip-trip.vercel.app/",
+    audience: ["vip"],
+    category: "vip",
+    priority: 1,
+    desc: "Already sat down? Claim the complimentary VIP trip reserved for you.",
+    primaryCTA: true,
+    frame: true,
+  },
+  escape_plan: {
+    id: "escape_plan",
+    label: "E-Estate · Escape Plan",
+    url: "https://because.itsownlymoney.com/",
+    audience: ["self", "household"],
+    category: "self",
+    priority: 1,
+    desc: "Digital real estate and the escape plan for income that depends on you.",
+    frame: true,
+  },
+  cashflow_dreams: {
+    id: "cashflow_dreams",
+    label: "Cash Flow · DREAMS",
+    url: "https://dreams.itsownlymoney.com/",
+    audience: ["household"],
+    category: "household",
+    priority: 1,
+    desc: "Hidden money and passive strategies for short runways to retirement.",
+    frame: true,
+  },
+  credit_partner: {
+    id: "credit_partner",
+    label: "Our Credit Partner",
+    url: "https://newageliteracy.com/",
+    audience: ["business"],
+    category: "credit",
+    priority: 3,
+    desc: "Personal credit restoration through our trusted partner.",
+    external: true,
+    openInNewTab: true,
+    frame: true,
+  },
+  wondertrust: {
+    id: "wondertrust",
+    label: "IRS Penalty Refund",
+    url: "https://filemycredit.com/daveivery",
+    audience: ["all"],
+    category: "credit",
+    priority: 1,
+    desc: "The IRS may owe you a refund on penalties & interest 2020–2023. Free check, deadline July 10, 2026.",
+    external: true,
+    frame: true,
+  },
+  signin_wealthpath: {
+    id: "signin_wealthpath",
+    label: "WealthPath — Sign In",
+    url: "https://itsownlymoney.vercel.app",
+    audience: ["all", "household"],
+    category: "household",
+    priority: 2,
+    desc: "Your WealthPath member dashboard.",
+    frame: true,
+  },
+  ownly_marketing: {
+    id: "ownly_marketing",
+    label: "Ownly Marketing",
+    url: "https://ownly-marketing.vercel.app/",
+    audience: ["business"],
+    category: "ai",
+    priority: 3,
+    desc: "Done-with-you marketing systems for owners.",
+    frame: true,
+  },
+  local_spotlight: {
+    id: "local_spotlight",
+    label: "Local Spotlight",
+    url: "https://localspotlightads.com",
+    audience: ["restaurant", "business"],
+    category: "ai",
+    priority: 2,
+    desc: "Local advertising that puts your restaurant in front of nearby buyers.",
+    frame: true,
+  },
+  eight_min_audit: {
+    id: "eight_min_audit",
+    label: "8 Minute Audit",
+    url: "https://8minuteaudit.com",
+    audience: ["business", "restaurant"],
+    category: "authority",
+    priority: 2,
+    desc: "Eight minutes. One audit. A clear picture of the growth you're missing.",
+    external: true,
+    frame: true,
+  },
+  venice_50k: {
+    id: "venice_50k",
+    label: "Venice 50K Challenge",
+    url: "https://venice50kchallenge.com",
+    audience: ["self"],
+    category: "authority",
+    priority: 3,
+    desc: "The challenge that turns hustle into a repeatable income system.",
+    frame: true,
+  },
+  venice_academy: {
+    id: "venice_academy",
+    label: "Venice Business Academy",
+    url: "https://venicebusinessacademy.com",
+    audience: ["business"],
+    category: "authority",
+    priority: 3,
+    desc: "Owner education from the Venice Business Academy.",
+    frame: true,
+  },
+
+  /* -------- NEEDS DAVE URL — placeholders, never navigate -------- */
+  // TODO(Dave): confirm URL — possibly the-ownly-breakthrough…?audience=restaurant
+  restaurant_breakthrough: {
+    id: "restaurant_breakthrough",
+    label: "Restaurant Breakthrough",
+    url: "#",
+    audience: ["restaurant"],
+    category: "restaurant",
+    priority: 1,
+    desc: "The breakthrough sequence, tuned for restaurant economics.",
+    pending: true,
+  },
+  // TODO(Dave): URL needed
+  restaurant_gpt: {
+    id: "restaurant_gpt",
+    label: "RestaurantGPT Profit-Leak Scan",
+    url: "#",
+    audience: ["restaurant"],
+    category: "restaurant",
+    priority: 2,
+    desc: "AI scan for the profit leaks your POS reports never show.",
+    pending: true,
+  },
+  // TODO(Dave): URL needed
+  fica_tip_credit: {
+    id: "fica_tip_credit",
+    label: "FICA Tip Credit Check",
+    url: "#",
+    audience: ["restaurant"],
+    category: "restaurant",
+    priority: 2,
+    desc: "See if the IRS owes your restaurant money on tipped payroll.",
+    pending: true,
+  },
+  // TODO(Dave): URL needed
+  arf_capital: {
+    id: "arf_capital",
+    label: "Restaurant Capital (ARF)",
+    url: "#",
+    audience: ["restaurant"],
+    category: "restaurant",
+    priority: 3,
+    desc: "Capital access built for restaurant cash cycles.",
+    pending: true,
+  },
+  // TODO(Dave): URL needed
+  ringfoods: {
+    id: "ringfoods",
+    label: "RingFoods",
+    url: "#",
+    audience: ["restaurant"],
+    category: "restaurant",
+    priority: 3,
+    desc: "Food-cost leverage for operators.",
+    pending: true,
+  },
+  // TODO(Dave): URL needed
+  stella: {
+    id: "stella",
+    label: "Stella",
+    url: "#",
+    audience: ["restaurant"],
+    category: "restaurant",
+    priority: 3,
+    desc: "Front-of-house AI for restaurants.",
+    pending: true,
+  },
+  // TODO(Dave): URL needed
+  missed_call: {
+    id: "missed_call",
+    label: "Missed-Call Speed-to-Lead",
+    url: "#",
+    audience: ["restaurant"],
+    category: "restaurant",
+    priority: 3,
+    desc: "Every missed call answered, every lead caught.",
+    pending: true,
+  },
+  // TODO(Dave): URL needed
+  freedom_score: {
+    id: "freedom_score",
+    label: "Freedom Score",
+    url: "#",
+    audience: ["household"],
+    category: "household",
+    priority: 2,
+    desc: "One number that tells your family how close freedom really is.",
+    pending: true,
+  },
+  // TODO(Dave): memory says front door adv-david-124 → Six Figure Sit Down; get exact URL
+  planswell: {
+    id: "planswell",
+    label: "Planswell",
+    url: "#",
+    audience: ["self", "household"],
+    category: "household",
+    priority: 3,
+    desc: "A full financial plan, built free.",
+    pending: true,
+  },
+  // TODO(Dave): URL needed
+  tax_retirement: {
+    id: "tax_retirement",
+    label: "Tax & Retirement Strategy",
+    url: "#",
+    audience: ["self"],
+    category: "self",
+    priority: 2,
+    desc: "Keep more of what 1099 life earns you.",
+    pending: true,
+  },
+  // TODO(Dave): likely a Calendly — confirm
+  restaurant_review: {
+    id: "restaurant_review",
+    label: "Book a Restaurant Money Review",
+    url: "#",
+    audience: ["restaurant"],
+    category: "restaurant",
+    priority: 1,
+    desc: "A focused review of where your restaurant's money is hiding.",
+    pending: true,
+  },
+  // TODO(Dave): URLs needed
+  dave_books: {
+    id: "dave_books",
+    label: "Dave's Books",
+    url: "#",
+    audience: ["all"],
+    category: "authority",
+    priority: 3,
+    desc: "Five books on money, ownership, and control.",
+    pending: true,
+  },
+};
+
+/** Vault drawer categories, in display order. */
+export const VAULT_CATEGORIES: { key: Category; title: string }[] = [
+  { key: "business", title: "Business" },
+  { key: "restaurant", title: "Restaurant" },
+  { key: "household", title: "Household" },
+  { key: "self", title: "Self-Employed" },
+  { key: "credit", title: "Credit & Capital" },
+  { key: "ai", title: "AI · Web · Marketing" },
+  { key: "authority", title: "Dave & Authority" },
+];
+
+export function linksByCategory(cat: Category): HubLink[] {
+  const extra = cat === "authority" ? ["vip" as Category] : [];
+  return Object.values(LINKS)
+    .filter((l) => l.category === cat || extra.includes(l.category))
+    .sort((a, b) => a.priority - b.priority || a.label.localeCompare(b.label));
+}
+
+export function getLink(id: string): HubLink {
+  const l = LINKS[id];
+  if (!l) throw new Error(`Unknown link id: ${id}`);
+  return l;
+}

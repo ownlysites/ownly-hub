@@ -12,17 +12,24 @@ const FRAMEABLE = [
   "venice50kchallenge.com",
   "venicebusinessacademy.com",
   "localspotlightads.com",
+  // Added for the Concierge hub (all Ownly-controlled properties):
+  "ownly-money-breakthrough.vercel.app",
+  "ownly-vip-trip.vercel.app",
+  "ownly-marketing.vercel.app",
+  "dreams.itsownlymoney.com",
+  "because.itsownlymoney.com",
 ];
 
 export default function ConciergeFrame() {
   const js = `(function(){
+  if (window.__ownlyConcierge) return; window.__ownlyConcierge = true;
   const FRAMEABLE = ${JSON.stringify(FRAMEABLE)};
   const style = document.createElement('style');
   style.textContent = \`
     #ownly-concierge{position:fixed;inset:0;z-index:9999;display:none;background:rgba(15,31,57,.92);backdrop-filter:blur(8px);animation:ocFade .25s ease-out}
     #ownly-concierge.open{display:flex;flex-direction:column}
     @keyframes ocFade{from{opacity:0}to{opacity:1}}
-    .oc-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(180deg,#0F1F39 0%,#1B3C73 100%);border-bottom:1px solid rgba(184,150,90,.25);color:#FDFCF8;font-family:'Inter',sans-serif}
+    .oc-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(180deg,#0F1F39 0%,#1B3C73 100%);border-bottom:1px solid rgba(184,150,90,.25);color:#FDFCF8;font-family:var(--ff-body)}
     .oc-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;letter-spacing:.02em}
     .oc-brand .oc-dot{width:8px;height:8px;border-radius:50%;background:#B8965A;box-shadow:0 0 12px rgba(184,150,90,.7)}
     .oc-title{font-size:12px;opacity:.7;font-weight:500;max-width:50vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -32,9 +39,9 @@ export default function ConciergeFrame() {
     .oc-btn.oc-close{border-color:rgba(255,255,255,.2);color:#FDFCF8}
     .oc-frame-wrap{flex:1;position:relative;background:#fff}
     .oc-frame-wrap iframe{width:100%;height:100%;border:0;background:#fff}
-    .oc-toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);max-width:480px;width:90%;background:linear-gradient(135deg,#0F1F39,#1B3C73);border:1px solid rgba(184,150,90,.4);border-radius:18px;padding:36px 32px;color:#FDFCF8;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.6);font-family:'Inter',sans-serif;z-index:10000;display:none;animation:ocFade .3s ease-out}
+    .oc-toast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);max-width:480px;width:90%;background:linear-gradient(135deg,#0F1F39,#1B3C73);border:1px solid rgba(184,150,90,.4);border-radius:18px;padding:36px 32px;color:#FDFCF8;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.6);font-family:var(--ff-body);z-index:10000;display:none;animation:ocFade .3s ease-out}
     .oc-toast.show{display:block}
-    .oc-toast h3{font-family:'Cormorant Garamond',serif;color:#D4B87A;font-size:28px;margin:0 0 12px;font-weight:500;font-style:italic}
+    .oc-toast h3{font-family:var(--ff-display);color:#D4B87A;font-size:28px;margin:0 0 12px;font-weight:500;font-style:italic}
     .oc-toast p{color:rgba(253,252,248,.8);font-size:15px;line-height:1.55;margin:0 0 22px}
     .oc-toast .oc-primary{display:inline-block;background:linear-gradient(135deg,#B8965A,#D4B87A);color:#0F1F39;padding:12px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:14px;margin-right:8px}
     .oc-toast .oc-secondary{display:inline-block;background:transparent;border:1px solid rgba(255,255,255,.25);color:#FDFCF8;padding:12px 26px;border-radius:999px;font-weight:700;cursor:pointer;font-size:14px;font-family:inherit}

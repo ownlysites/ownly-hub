@@ -1,6 +1,5 @@
 "use client";
 import { useRef } from "react";
-import { motion } from "framer-motion";
 
 /* =========================================================================
    TrapDoor — the one red button on an all-gold site. No label. No copy.
@@ -84,16 +83,12 @@ export default function TrapDoor() {
         overflow: "hidden",
       }}
     >
-      <motion.a
+      <a
         ref={aRef}
         href={TD_URL}
         onClick={fire}
-        className="trapdoor"
+        className="trapdoor td-enter"
         aria-label="Open the Trap Door"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <span className="td-glow" aria-hidden />
         <span className="td-base">
@@ -102,12 +97,17 @@ export default function TrapDoor() {
             <span className="td-glare" aria-hidden />
           </span>
         </span>
-      </motion.a>
+      </a>
 
       <canvas ref={fxRef} className="td-fx" aria-hidden />
       <div ref={flashRef} className="td-flash" aria-hidden />
 
       <style>{`
+        @keyframes td-enter {
+          from { opacity: 0; transform: scale(0.9); }
+          to   { opacity: 1; transform: scale(1); }
+        }
+        .td-enter { animation: td-enter 0.7s ease-out both; }
         .trapdoor {
           position: relative;
           display: inline-block;
